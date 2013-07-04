@@ -1,0 +1,18 @@
+{
+	"type": "project",
+	"require": {
+		"php": ">= 5.3.0",
+		"nette/nette": "@dev",
+		"michelf/php-markdown": "@dev",
+		"ircmaxell/password-compat": "@dev",
+		"symfony/console": "@dev",
+		"symfony/event-dispatcher": "@dev",
+		"doctrine/mongodb-odm": "@dev",
+		"bazo/nette-document-manager-extension": "@dev",
+		"kdyby/bootstrap-form-renderer": "@dev",
+		"kdyby/redis": "@dev"
+	},
+	"require-dev": {
+		"nette/tester": "@dev"
+	}
+}
