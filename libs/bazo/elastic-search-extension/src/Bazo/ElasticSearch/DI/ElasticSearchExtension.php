@@ -21,7 +21,7 @@ class ElasticSearchExtension extends \Nette\DI\CompilerExtension
 			'timeout' => NULL,
 			'connections' => [], // host, port, path, timeout, transport, persistent, timeout, config -> (curl, headers, url)
 			'roundRobin' => FALSE,
-			'log' => FALSE,
+			'log' => '%debugMode%',
 			'retryOnConflict' => 0]
 		,
 		'mapping' => [
@@ -39,18 +39,21 @@ class ElasticSearchExtension extends \Nette\DI\CompilerExtension
 
 		$config = $this->getConfig($this->defaults);
 
+		$debugMode = $containerBuilder->expand('%debugMode%');
+
 		$commandArguments = ['@'.$this->prefix('elastica'), $config['types'], $config['indices'], $config['analyzers'], $config['filters']];
 		
 		$containerBuilder
-			->addDefinition($this->prefix('panel'))
-			->setClass('Bazo\ElasticSearch\Diagnostics\ElasticSearchPanel')
-			->setFactory('Bazo\ElasticSearch\Diagnostics\ElasticSearchPanel::register');
-			//->addSetup('$renderPanel', array($config['debugger']));
+				->addDefinition($this->prefix('panel'))
+				->setClass('Bazo\ElasticSearch\Diagnostics\ElasticSearchPanel')
+				->setFactory('Bazo\ElasticSearch\Diagnostics\ElasticSearchPanel::register');
 		
-		$containerBuilder->addDefinition($this->prefix('elastica'))
-				->setClass('Elastica\Client', [$config['config']])
-				->addSetup('setLogger', '@'. $this->prefix('panel'));
-
+		$elasticaDefinition = $containerBuilder->addDefinition($this->prefix('elastica'))
+				->setClass('Elastica\Client', [$config['config']]);
+		if($debugMode) {
+			$elasticaDefinition->addSetup('setLogger', '@'. $this->prefix('panel'));
+		}
+		
 		$containerBuilder->addDefinition('elastica')
 				->setClass('Elastica\Client')
 				->setFactory('@container::getService', array($this->prefix('elastica')))

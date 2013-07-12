@@ -35,6 +35,7 @@ class ElasticSearchPanel extends Nette\Object implements \Nette\Diagnostics\IBar
 
 	public function addQuery($query = null)
 	{
+		var_dump($query);
 		$this->queries[] = $query;
 	}
 
@@ -124,8 +125,11 @@ class ElasticSearchPanel extends Nette\Object implements \Nette\Diagnostics\IBar
 	public static function register()
 	{
 		$panel = new static();
-		Debugger::$blueScreen->addPanel(array($panel, 'renderException'));
-		Debugger::$bar->addPanel($panel);
+		if(Debugger::$bar !== NULL) {
+			Debugger::$blueScreen->addPanel(array($panel, 'renderException'));
+			Debugger::$bar->addPanel($panel);
+		}
+		
 		return $panel;
 	}
 
