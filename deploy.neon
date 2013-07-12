@@ -1,0 +1,8 @@
+shared_folders:
+	- temp
+	- log
+hooks:
+	after_receive:
+		- "composer install"
+	before_deploy:
+	after_deploy:
