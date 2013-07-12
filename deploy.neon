@@ -1,6 +1,8 @@
 shared_folders:
 	- temp
 	- log
+	- app/models/hydrators
+	- app/models/proxies
 hooks:
 	after_receive:
 		- "composer install"
