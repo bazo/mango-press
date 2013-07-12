@@ -7,3 +7,6 @@ vendor/*
 !.htaccess
 !web.config
 app/config/config.local.neon
+app/config/debug
+app/config/environment
+nbproject
