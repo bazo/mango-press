@@ -1,0 +1,36 @@
+{#content}
+
+<a n:href="edit" class="btn btn-success">
+	<i class="icon icon-plus"></i> Add new
+</a>
+
+<table class="table table-striped table-hover table-bordered">
+	<thead>
+		<th>Created</th>
+		<th>Title</th>
+		<th>Author</th>
+		<th>Tags</th>
+		<th>Actions</th>
+	</thead>
+	<tbody n:inner-foreach="$posts as $post">
+		<tr>
+			<td>
+				{$post->getCreated()|date:'d.m.Y'}
+			</td>
+			<td>
+				<a n:href="detail id => $post->getId()">{$post->getTitle()}</a>
+			</td>
+			<td>
+				{$post->getAuthor()->getLogin()}
+			</td>
+			<td>
+				{=implode(', ', $post->getTags())|truncate:20}
+			</td>
+			<td>
+				<a n:href="detail id => $post->getId()"><i class="icon icon-zoom-in"></i> Detail</a>
+				<a n:href="edit id => $post->getId()"><i class="icon icon-edit"></i> Edit</a>
+				<a n:href="delete! id => $post->getId()"><i class="icon icon-remove"></i> Delete</a>
+			</td>
+		</tr>
+	</tbody>
+</table>

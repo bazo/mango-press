@@ -1,0 +1,23 @@
+{
+  "name": "bootstrap-markdown",
+  "version": "1.1.1",
+  "main": [
+    "./js/bootstrap-markdown.js",
+    "./css/bootstrap-markdown.min.css"
+  ],
+  "dependencies": {
+    "bootstrap": "~2.3.0"
+  },
+  "devDependencies": {
+    "markdown": "~0.4.0"
+  },
+  "readme": "## Bootstrap Markdown\r\n\r\nMarkdown editing meet Bootstrap.\r\n\r\nDemo and documentation on [http://toopay.github.com/bootstrap-markdown/](http://toopay.github.com/bootstrap-markdown/)\r\n\r\n### LICENSE\r\n\r\n> Copyright 2013 Taufan Aditya\r\n> \r\n> Licensed under the Apache License, Version 2.0 (the \"License\");\r\n> you may not use this file except in compliance with the License.\r\n> You may obtain a copy of the License at\r\n>\r\n> http://www.apache.org/licenses/LICENSE-2.0\r\n>\r\n> Unless required by applicable law or agreed to in writing, software\r\n> distributed under the License is distributed on an \"AS IS\" BASIS,\r\n> WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\n> See the License for the specific language governing permissions and\r\n> limitations under the License.",
+  "readmeFilename": "README.md",
+  "gitHead": "6ed34fb7e564ebd41b1ddb39ee3af90cdf8e390d",
+  "_id": "bootstrap-markdown@1.1.1",
+  "description": "Markdown editing meet Bootstrap.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/toopay/bootstrap-markdown.git"
+  }
+}

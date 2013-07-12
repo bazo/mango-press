@@ -1,0 +1,8 @@
+{
+	"dependencies": {
+		"requirejs": "*",
+		"jquery": "*",
+		"markdown": "*",
+		"bootstrap-markdown": "*"
+	}
+}

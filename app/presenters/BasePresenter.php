@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MangoPress;
 
 use Nette,
 	Model;
@@ -11,5 +11,9 @@ use Nette,
  */
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
-
+	public function flash($message, $type = 'success')
+	{
+		$this->flashMessage($message, $type);
+		$this->invalidateControl('flashes');
+	}
 }

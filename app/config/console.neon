@@ -1,0 +1,37 @@
+services:
+	#commands
+	
+	install:
+		class: Console\Command\Install
+		tags: [consoleCommand]
+
+	createUser:
+		class: Console\Command\CreateUser
+		tags: [consoleCommand]
+		setup:
+			- setUserManager(...)
+
+	indexAllPosts:
+		class: Console\Command\IndexAllPosts
+		tags: [consoleCommand]
+
+	#helpers
+	dialog:
+		class: \Symfony\Component\Console\Helper\DialogHelper
+		tags: [consoleHelper]
+
+	progress:
+		class: \Symfony\Component\Console\Helper\ProgressHelper
+		tags: [consoleHelper]
+
+	formatter:
+		class: \Symfony\Component\Console\Helper\FormatterHelper
+		tags: [consoleHelper]
+
+	dm:
+		class: \Doctrine\ODM\MongoDB\Tools\Console\Helper\DocumentManagerHelper
+		tags: [consoleHelper]
+
+	documentManager:
+		class: \Doctrine\ODM\MongoDB\Tools\Console\Helper\DocumentManagerHelper
+		tags: [consoleHelper]

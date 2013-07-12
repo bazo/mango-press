@@ -1,0 +1,13 @@
+{#content}
+
+<h1>{$post->getTitle()}</h1>
+
+<div>
+<small class="pull-left">{$post->getPublished()|date:'d.m.Y'}</small>
+<div class="pull-right">
+	<a n:href="edit id => $post->getId()" class="btn btn-primary">Edit</a>
+	<a n:if="!$post->isPublished()" n:href="publish! id => $post->getId()" class="btn btn-success">Publish</a>
+	<a n:if="$post->isPublished()" n:href="unpublish! id => $post->getId()" class="btn btn-danger">Unpublish</a>
+</div>
+</div>
+{!$post->getHtml()}

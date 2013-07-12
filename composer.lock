@@ -3,25 +3,31 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "60f7d5503bd4dc7f19267fc6bcd20353",
+    "hash": "07acf69b4bd7ce95b91ce12aa075bcd6",
     "packages": [
         {
             "name": "bazo/nette-document-manager-extension",
-            "version": "dev-master",
+            "version": "dev-extensions",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bazo/nette-document-manager-extension.git",
-                "reference": "d6ab55342257b583f3b2aedde7e9a119451f27d9"
+                "reference": "a23c16274d88b78f8e0025af0da3e9c2b74b0498"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bazo/nette-document-manager-extension/zipball/d6ab55342257b583f3b2aedde7e9a119451f27d9",
-                "reference": "d6ab55342257b583f3b2aedde7e9a119451f27d9",
+                "url": "https://api.github.com/repos/bazo/nette-document-manager-extension/zipball/a23c16274d88b78f8e0025af0da3e9c2b74b0498",
+                "reference": "a23c16274d88b78f8e0025af0da3e9c2b74b0498",
                 "shasum": ""
             },
             "require": {
-                "doctrine/mongodb-odm": "*",
+                "doctrine/mongodb-odm": "@dev",
                 "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "gedmo/doctrine-extensions": "@dev"
+            },
+            "suggest": {
+                "gedmo/doctrine-extensions": "@dev"
             },
             "type": "library",
             "autoload": {
@@ -44,7 +50,7 @@
                 "mongodb",
                 "nette"
             ],
-            "time": "2013-05-10 11:23:37"
+            "time": "2013-07-06 12:26:14"
         },
         {
             "name": "doctrine/common",
@@ -249,6 +255,86 @@
             "time": "2013-07-04 19:12:04"
         },
         {
+            "name": "gedmo/doctrine-extensions",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
+                "reference": "ef7119fc9076c3c0b652aa9c8266286472e24dc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/ef7119fc9076c3c0b652aa9c8266286472e24dc1",
+                "reference": "ef7119fc9076c3c0b652aa9c8266286472e24dc1",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": ">=2.2,<2.5-dev",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "doctrine/common": ">=2.4.0-RC3",
+                "doctrine/dbal": ">=2.4.0-RC1",
+                "doctrine/mongodb": ">=1.0.3",
+                "doctrine/mongodb-odm": ">=1.0.0-BETA9",
+                "doctrine/orm": ">=2.4.0-RC1",
+                "symfony/yaml": "2.3.1"
+            },
+            "suggest": {
+                "doctrine/dbal": ">=2.3.2",
+                "doctrine/mongodb": ">=1.0.1",
+                "doctrine/mongodb-odm": ">=1.0.0-BETA7",
+                "doctrine/orm": ">=2.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Gedmo\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Buchmann",
+                    "email": "david@liip.ch"
+                },
+                {
+                    "name": "Gediminas Morkevicius",
+                    "email": "gediminas.morkevicius@gmail.com"
+                },
+                {
+                    "name": "Gustavo Falco",
+                    "email": "comfortablynumb84@gmail.com"
+                }
+            ],
+            "description": "Doctrine2 behavioral extensions",
+            "homepage": "http://gediminasm.org/",
+            "keywords": [
+                "Blameable",
+                "behaviors",
+                "doctrine2",
+                "extensions",
+                "gedmo",
+                "loggable",
+                "nestedset",
+                "sluggable",
+                "sortable",
+                "timestampable",
+                "translatable",
+                "tree",
+                "uploadable"
+            ],
+            "time": "2013-07-10 19:03:29"
+        },
+        {
             "name": "ircmaxell/password-compat",
             "version": "dev-master",
             "source": {
@@ -341,12 +427,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kdyby/Redis.git",
-                "reference": "597f70140fd847a89b5bdf78996d73133a5eaf4b"
+                "reference": "a501a8fde860727355b0c606fc80358c1eb5b43b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kdyby/Redis/zipball/597f70140fd847a89b5bdf78996d73133a5eaf4b",
-                "reference": "597f70140fd847a89b5bdf78996d73133a5eaf4b",
+                "url": "https://api.github.com/repos/Kdyby/Redis/zipball/e400d81fcf90804772d518ca53b96f6be0318385",
+                "reference": "a501a8fde860727355b0c606fc80358c1eb5b43b",
                 "shasum": ""
             },
             "require": {
@@ -388,7 +474,7 @@
                 "nette",
                 "redis"
             ],
-            "time": "2013-06-30 13:36:22"
+            "time": "2013-07-09 00:51:47"
         },
         {
             "name": "michelf/php-markdown",
@@ -447,12 +533,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/nette.git",
-                "reference": "85f07b90bbbb7a35488af01d07faa29e4ac91a99"
+                "reference": "9c715148a3f92c00e709974ce88eac2b1fdeae08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/nette/zipball/85f07b90bbbb7a35488af01d07faa29e4ac91a99",
-                "reference": "85f07b90bbbb7a35488af01d07faa29e4ac91a99",
+                "url": "https://api.github.com/repos/nette/nette/zipball/9c715148a3f92c00e709974ce88eac2b1fdeae08",
+                "reference": "9c715148a3f92c00e709974ce88eac2b1fdeae08",
                 "shasum": ""
             },
             "require": {
@@ -513,7 +599,101 @@
                 "neon",
                 "templating"
             ],
-            "time": "2013-07-04 14:53:21"
+            "time": "2013-07-12 10:23:03"
+        },
+        {
+            "name": "psr/log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/1.0.0",
+                "reference": "1.0.0",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Psr\\Log\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2012-12-21 11:40:51"
+        },
+        {
+            "name": "ruflin/elastica",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ruflin/Elastica.git",
+                "reference": "db7c85f5af0d85f04b1fe955c8202fd69b417901"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/db7c85f5af0d85f04b1fe955c8202fd69b417901",
+                "reference": "db7c85f5af0d85f04b1fe955c8202fd69b417901",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "munkie/elasticsearch-thrift-php": "1.4.*",
+                "psr/log": "~1.0"
+            },
+            "suggest": {
+                "monolog/monolog": "Logging request",
+                "munkie/elasticsearch-thrift-php": "Allow using thrift transport",
+                "psr/log": "for logging"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.20.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Elastica": "lib/",
+                    "Elastica\\Test": "test/lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Ruflin",
+                    "homepage": "http://ruflin.com/"
+                }
+            ],
+            "description": "Elasticsearch Client",
+            "homepage": "http://ruflin.github.com/Elastica/",
+            "keywords": [
+                "client",
+                "search"
+            ],
+            "time": "2013-07-10 11:43:24"
         },
         {
             "name": "symfony/console",
@@ -522,12 +702,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "b68fd0262ebae63f796d188f48eaa470044861fd"
+                "reference": "c374f12670a4e6b6b72ef2a2d58b75534d94609c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/b68fd0262ebae63f796d188f48eaa470044861fd",
-                "reference": "b68fd0262ebae63f796d188f48eaa470044861fd",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/c374f12670a4e6b6b72ef2a2d58b75534d94609c",
+                "reference": "c374f12670a4e6b6b72ef2a2d58b75534d94609c",
                 "shasum": ""
             },
             "require": {
@@ -566,7 +746,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2013-06-23 08:16:33"
+            "time": "2013-07-11 19:37:15"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -630,12 +810,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tester.git",
-                "reference": "99dfe7a8ec2e8a6ca18b9ca0cb2ce63536b466f7"
+                "reference": "v0.9.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tester/zipball/99dfe7a8ec2e8a6ca18b9ca0cb2ce63536b466f7",
-                "reference": "99dfe7a8ec2e8a6ca18b9ca0cb2ce63536b466f7",
+                "url": "https://api.github.com/repos/nette/tester/zipball/v0.9.1",
+                "reference": "v0.9.1",
                 "shasum": ""
             },
             "require": {
@@ -673,7 +853,7 @@
                 "testing",
                 "unit"
             ],
-            "time": "2013-06-24 23:00:16"
+            "time": "2013-07-09 13:54:11"
         }
     ],
     "aliases": [
@@ -687,9 +867,12 @@
         "symfony/console": 20,
         "symfony/event-dispatcher": 20,
         "doctrine/mongodb-odm": 20,
+        "gedmo/doctrine-extensions": 20,
         "bazo/nette-document-manager-extension": 20,
         "kdyby/bootstrap-form-renderer": 20,
         "kdyby/redis": 20,
+        "psr/log": 20,
+        "ruflin/elastica": 20,
         "nette/tester": 20
     },
     "platform": {

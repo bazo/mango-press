@@ -5,7 +5,8 @@
 # http://nette.org/security-warning
 #
 parameters:
-
+	db:
+		name: mangopress
 php:
 	date.timezone: Europe/Prague
 	# zlib.output_compression: yes
@@ -14,16 +15,85 @@ nette:
 	application:
 		errorPresenter: Error
 		mapping:
-			*: App\*Module\*Presenter
+			*: MangoPress\*Module\*Presenter
 
 	session:
 		expiration: 14 days
 
+extensions:
+	database: Bazo\MongoDb\DI\DocumentManagerExtension
+	odmCommands: Bazo\MongoDb\DI\DoctrineODMCommandsExtension
+	console: Extensions\ConsoleExtension
+	mediator: Extensions\MediatorExtension
+	redis: Kdyby\Redis\DI\RedisExtension
+	elasticSearch: Bazo\ElasticSearch\DI\ElasticSearchExtension
+
+database:
+	dbname: %db.name%
+	uri: mongodb://localhost/%db.name%
+	cachePrefix: %db.name%
+	metaDataCache: @metaDataCache
+	autoGenerateHydratorClasses: FALSE
+	autoGenerateProxyClasses: FALSE
+	eventManager: @odmEventManager
+
+redis:
+	host: 127.0.0.1
+	port: 6379
+	timeout: 10
+	database: 0
+	storage: on
+	journal: on
+	session: on
 
 services:
-	- Model\UserManager
+
+	odmEventManager: 
+		class: Doctrine\Common\EventManager
+		setup:
+			- addEventSubscriber(@timestampableListener)
+			- addEventSubscriber(@blameableListener)
+
+	#odm listeners
+	timestampableListener: Gedmo\Timestampable\TimestampableListener
+	blameableListener: MangoPress\Listeners\BlameableListener(@container)
+	softDeleteableListener: Gedmo\SoftDeleteable\SoftDeleteableListener
+
+	ablameableListener: 
+		class: \Gedmo\Blameable\BlameableListener
+		setup:
+			- setUserValue('ds')
+			
+	tagsManager:
+		class: Posts\TagsManager
+		tags: [subscriber]
+
+	#cache
+	metaDataCache: Doctrine\Common\Cache\FilesystemCache(%tempDir%/cache/_Doctrine.Metadata)
+
+	#routing
 	- App\RouterFactory
 	router: @App\RouterFactory::createRouter
 
+	#security
+	- Security\UserManager
+
+	baseManager: BaseManager
+
+	#posts
+	- Posts\PostsManager
+	indexingListener:
+		class: Search\IndexingListener
+		tags: [subscriber]
+
+	- Settings\SettingsManager
+	postsIndexer: Posts\PostsIndexer
+		
+	#queue
+	- Queue\QueueManager
+	queueConsumer: Queue\Consumer
 
 factories:
+
+includes:
+	- elasticsearch.neon

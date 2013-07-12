@@ -1,0 +1,19 @@
+{#content}
+
+{control formEditPost}
+
+<script>
+	$(function(){
+		
+		var prefilled = function() {
+			return $('input[name="tags"]').val().split(',');
+		}
+				
+		$('input[name="tags"]').tagsManager({
+			hiddenTagListName: 'tags-values',
+			hiddenTagListId: null,
+			deleteTagsOnBackspace: true,
+			prefilled: prefilled
+		});
+	});
+</script>

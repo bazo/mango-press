@@ -1,0 +1,30 @@
+{#content}
+	
+	<div class="alert alert-info">
+		<strong>Heads up!</strong> 
+		This alert needs your attention, but it's not super important.
+	</div>
+
+	<article class="media post" n:foreach="$posts as $post">
+		<div class="media-body">
+			<h1 class="media-heading">
+				<a n:href="post: slug => $post->slug">{$post->title|upper}</a>
+			</h1>
+			<div class="post-meta">
+				<small>Written <strong>{$post->published|timeAgo}</strong> by <a n:href="search search => $post->author"><strong>{$post->author}</strong></a>
+					tags: <strong>{include #tags tags => $post->tags}</strong></small>
+			</div>
+			<div class="post-body">
+				{!$post->html}
+			</div>
+			<p><a href="{link pot: slug => $post->slug}#disqus_thread"></a></p>
+		</div>
+	</article>
+	
+{/}
+
+{define #tags}
+	{foreach $tags as $tag}
+		<a n:href="tag search => $tag">{$tag}</a>{sep}, {/}
+	{/}
+{/}
