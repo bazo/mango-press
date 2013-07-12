@@ -1,8 +1,9 @@
 {#content}
-	
-	<div class="alert alert-info">
-		<strong>Heads up!</strong> 
-		This alert needs your attention, but it's not super important.
+	<div n:if="!count($posts->getResults()) > 0" class="alert alert-info">
+		<strong>No posts found</strong> <br>
+		<p n:ifset="$search">No posts found for "{$search}". Please search for something else.</p>
+		<p n:ifset="$activeTag">No post found for tag "{$activeTag}". Please try another tag.</p>
+		<p n:if="!isset($search) and !isset($activeTag)">Nothing written yet! Come back later.</p>
 	</div>
 
 	<article class="media post" n:foreach="$posts as $post">

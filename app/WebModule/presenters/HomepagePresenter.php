@@ -34,7 +34,7 @@ class HomepagePresenter extends BasePresenter
 	public function actionSearch($search)
 	{
 		$this->criteria->searchTerm = $search;
-		$this->template->activeTag = $search;
+		$this->template->search = $search;
 		
 		$this->view = 'default';
 	}
