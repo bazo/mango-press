@@ -8,7 +8,7 @@ parameters:
 	db:
 		name: mangopress
 php:
-	date.timezone: Europe/Prague
+	date.timezone: Europe/Bratislava
 	# zlib.output_compression: yes
 
 nette:
