@@ -9,7 +9,7 @@ use Nette\Utils\Strings;
  * @ODM\Document
  * @Gedmo\SoftDeleteable(fieldName="deleted")
  */
-class Post
+class Post extends Nette\Object
 {
 
 	/**

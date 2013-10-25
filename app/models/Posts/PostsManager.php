@@ -143,14 +143,29 @@ class PostsManager extends \BaseManager
 	public function searchPosts(PostCriteria $criteria)
 	{
 		if($criteria->searchTerm) {
-			return $this->searchPostsBySearchTerm($criteria->searchTerm);
+			try {
+				return $this->searchPostsBySearchTerm($criteria->searchTerm);
+			} catch (\Elastica\Exception\Connection\HttpException $e) {
+				//elasticsearch down?
+				return $this->getPostsByCriteria($criteria)->getResults();
+			}
 		}
 		
 		if($criteria->tag) {
-			return $this->searchPostsByTag($criteria->tag);
+			try {
+				return $this->searchPostsByTag($criteria->tag)->getResults();
+			} catch (\Elastica\Exception\Connection\HttpException $e) {
+				//elasticsearch down?
+				return $this->getPostsByCriteria($criteria);
+			}
 		}
 		
-		return $this->searchAllPosts();
+		try {
+			return $this->searchAllPosts()->getResults();
+		} catch (\Elastica\Exception\Connection\HttpException $e) {
+			//elasticsearch down?
+			return $this->getAllPublishedPosts();
+		}
 	}
 	
 	public function searchPostsBySearchTerm($searchTerm)

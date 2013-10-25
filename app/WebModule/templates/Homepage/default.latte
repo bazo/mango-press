@@ -1,5 +1,5 @@
 {#content}
-	<div n:if="!count($posts->getResults()) > 0" class="alert alert-info">
+	<div n:if="!count($posts) > 0" class="alert alert-info">
 		<strong>No posts found</strong> <br>
 		<p n:ifset="$search">No posts found for "{$search}". Please search for something else.</p>
 		<p n:ifset="$activeTag">No post found for tag "{$activeTag}". Please try another tag.</p>
@@ -12,8 +12,11 @@
 				<a n:href="post: slug => $post->slug">{$post->title|upper}</a>
 			</h1>
 			<div class="post-meta">
-				<small>Written <strong>{$post->published|timeAgo}</strong> by <a n:href="search search => $post->author"><strong>{$post->author}</strong></a>
+				<small n:if="is_string($post->author)">Written <strong>{$post->published|timeAgo}</strong> by <a n:href="search search => $post->author"><strong>{$post->author}</strong></a>
 					tags: <strong>{include #tags tags => $post->tags}</strong></small>
+					
+				<small n:if="is_object($post->author)">Written <strong>{$post->published|timeAgo}</strong> by <a n:href="search search => $post->author->login"><strong>{$post->author->login}</strong></a>
+					tags: <strong>{include #tags tags => $post->tags}</strong></small>	
 			</div>
 			<div class="post-body">
 				{!$post->html}

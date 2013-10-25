@@ -8,7 +8,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
  * @author Martin Bažík <martin@bazo.sk>
  * @ODM\Document
  */
-class User implements Nette\Security\IIdentity
+class User extends Nette\Object implements Nette\Security\IIdentity
 {
 
 	/**

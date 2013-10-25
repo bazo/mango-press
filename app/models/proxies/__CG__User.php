@@ -71,6 +71,36 @@ class User extends \User implements \Doctrine\ODM\MongoDB\Proxy\Proxy
         return parent::getRoles();
     }
 
+    public function __call($name, $args)
+    {
+        $this->__load();
+        return parent::__call($name, $args);
+    }
+
+    public function &__get($name)
+    {
+        $this->__load();
+        return parent::__get($name);
+    }
+
+    public function __set($name, $value)
+    {
+        $this->__load();
+        return parent::__set($name, $value);
+    }
+
+    public function __isset($name)
+    {
+        $this->__load();
+        return parent::__isset($name);
+    }
+
+    public function __unset($name)
+    {
+        $this->__load();
+        return parent::__unset($name);
+    }
+
 
     public function __sleep()
     {
