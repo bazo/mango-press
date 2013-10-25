@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "478f59e7ebfa2c05ad8eec1f97cfbb9a",
+    "hash": "e80cc3f60be1a3dbfc3a190dd2d94aa6",
     "packages": [
         {
             "name": "bazo/nette-document-manager-extension",
@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bazo/nette-elasticsearch-extension.git",
-                "reference": "f05c0679c990cf25ac3e0741b51fe17b3b3e0ada"
+                "reference": "6ab3c169e541389bd34d565b89e0a090bb5f7099"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bazo/nette-elasticsearch-extension/zipball/f05c0679c990cf25ac3e0741b51fe17b3b3e0ada",
-                "reference": "f05c0679c990cf25ac3e0741b51fe17b3b3e0ada",
+                "url": "https://api.github.com/repos/bazo/nette-elasticsearch-extension/zipball/6ab3c169e541389bd34d565b89e0a090bb5f7099",
+                "reference": "6ab3c169e541389bd34d565b89e0a090bb5f7099",
                 "shasum": ""
             },
             "require": {
@@ -94,7 +94,7 @@
                 "nette",
                 "search"
             ],
-            "time": "2013-07-16 21:11:26"
+            "time": "2013-10-25 09:48:05"
         },
         {
             "name": "doctrine/annotations",
@@ -802,12 +802,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kdyby/Redis.git",
-                "reference": "a501a8fde860727355b0c606fc80358c1eb5b43b"
+                "reference": "96ba327caee61654edb1a72de42ca0aa33a5ab73"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/Kdyby/Redis/zipball/96ba327caee61654edb1a72de42ca0aa33a5ab73",
-                "reference": "a501a8fde860727355b0c606fc80358c1eb5b43b",
+                "reference": "96ba327caee61654edb1a72de42ca0aa33a5ab73",
                 "shasum": ""
             },
             "require": {
@@ -849,7 +849,7 @@
                 "nette",
                 "redis"
             ],
-            "time": "2013-07-09 00:51:47"
+            "time": "2013-10-01 20:03:29"
         },
         {
             "name": "michelf/php-markdown",

@@ -5,6 +5,6 @@ shared_folders:
 	- app/models/proxies
 hooks:
 	after_receive:
-		- "composer install"
+		- "composer install --optimize-autoloader --profile -v -n"
 	before_deploy:
 	after_deploy:

@@ -11,7 +11,7 @@
 		"gedmo/doctrine-extensions": "@dev",
 		"bazo/nette-document-manager-extension": "dev-extensions",
 		"kdyby/bootstrap-form-renderer": "@dev",
-		"kdyby/redis": "dev-master#a501a8fde860727355b0c606fc80358c1eb5b43b",
+		"kdyby/redis": "dev-master",
 		"psr/log": "@dev",
 		"ruflin/elastica": "@dev",
 		"bazo/nette-elasticsearch-extension": "@dev"
