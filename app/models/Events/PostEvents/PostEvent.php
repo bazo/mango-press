@@ -11,14 +11,19 @@ use Symfony\Component\EventDispatcher\Event;
  */
 class PostEvent extends Event
 {
+
 	/** @var \Post */
 	private $post;
-	
-	public function __construct(\Post $post)
+	private $tags = [];
+
+
+	public function __construct(\Post $post, array $tags)
 	{
 		$this->post = $post;
+		$this->tags = $tags;
 	}
-	
+
+
 	/**
 	 * @return \Post
 	 */
@@ -26,6 +31,13 @@ class PostEvent extends Event
 	{
 		return $this->post;
 	}
+
+
+	public function getTags()
+	{
+		return $this->tags;
+	}
+
 
 }
 

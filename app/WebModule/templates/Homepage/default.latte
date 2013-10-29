@@ -16,7 +16,7 @@
 					tags: <strong>{include #tags tags => $post->tags}</strong></small>
 					
 				<small n:if="is_object($post->author)">Written <strong>{$post->published|timeAgo}</strong> by <a n:href="search search => $post->author->login"><strong>{$post->author->login}</strong></a>
-					tags: <strong>{include #tags tags => $post->tags}</strong></small>	
+					tags: <strong>{include #tags tags => $post->getDisplayTags()}</strong></small>	
 			</div>
 			<div class="post-body">
 				{!$post->html}
@@ -29,6 +29,6 @@
 
 {define #tags}
 	{foreach $tags as $tag}
-		<a n:href="tag search => $tag">{$tag}</a>{sep}, {/}
+		<a n:href="tag search => $template->webalize($tag)">{$tag}</a>{sep}, {/}
 	{/}
 {/}

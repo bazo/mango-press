@@ -100,6 +100,12 @@ class Post extends Nette\Object
 	 */
 	private $tags = [];
 
+	/**
+	 * @var \Doctrine\Common\Collections\ArrayCollection
+	 * @ODM\Collection
+	 */
+	private $displayTags = [];
+
 
 	public function __construct($title, $text, $html)
 	{
@@ -108,6 +114,7 @@ class Post extends Nette\Object
 		$this->html = $html;
 		$this->slug = Strings::webalize($title);
 	}
+
 
 	/**
 	 * 
@@ -125,6 +132,7 @@ class Post extends Nette\Object
 		return $this;
 	}
 
+
 	/**
 	 * Publish post
 	 * @return Post
@@ -136,6 +144,7 @@ class Post extends Nette\Object
 		return $this;
 	}
 
+
 	/**
 	 * Unpublish post
 	 * @return Post
@@ -145,6 +154,7 @@ class Post extends Nette\Object
 		$this->isPublished = FALSE;
 		return $this;
 	}
+
 
 	/**
 	 * Set post author
@@ -199,6 +209,7 @@ class Post extends Nette\Object
 		return $this->updated;
 	}
 
+
 	/**
 	 * Get the publis time
 	 * @return DateTime
@@ -244,6 +255,7 @@ class Post extends Nette\Object
 		return $this->publishedBy;
 	}
 
+
 	/**
 	 * Tag post with multiple tags
 	 * @param array $tags
@@ -251,9 +263,13 @@ class Post extends Nette\Object
 	 */
 	public function tag(array $tags)
 	{
-		$this->tags = $tags;
+		$this->displayTags = $tags;
+		$this->tags = array_map(function($slug) {
+			return Strings::webalize($slug);
+		}, $tags);
 		return $this;
 	}
+
 
 	/**
 	 * Add multiple tags
@@ -265,7 +281,8 @@ class Post extends Nette\Object
 		$this->tags = array_merge($this->tags, $tags);
 		return $this;
 	}
-	
+
+
 	/**
 	 * Add a tag
 	 * @param string $tag
@@ -276,6 +293,7 @@ class Post extends Nette\Object
 		array_push($this->tags, $tag);
 		return $this;
 	}
+
 
 	/**
 	 * Remove tag
@@ -289,6 +307,7 @@ class Post extends Nette\Object
 		return $this;
 	}
 
+
 	/**
 	 * @return SplFixedArray
 	 */
@@ -298,6 +317,11 @@ class Post extends Nette\Object
 	}
 
 
-}
+	public function getDisplayTags()
+	{
+		return $this->displayTags;
+	}
 
+
+}
 

@@ -13,7 +13,7 @@
 				</h1>
 				<div class="post-meta">
 					<small>Written <strong>{$post->getPublished()|timeAgo}</strong> by <strong>{$post->getAuthor()->getLogin()}</strong>
-						tags: <strong>{include #tags tags => $post->getTags()}</strong></small>
+						tags: <strong>{include #tags tags => $post->getDisplayTags()}</strong></small>
 				</div>
 				<div class="post-body">
 					{!$post->getHtml()}
@@ -45,6 +45,6 @@
 
 {define #tags}
 	{foreach $tags as $tag}
-		<a n:href="homepage:tag search => $tag">{$tag}</a>{sep}, {/}
+		<a n:href="homepage:tag search => $template->webalize($tag)">{$tag}</a>{sep}, {/}
 	{/}
 {/}

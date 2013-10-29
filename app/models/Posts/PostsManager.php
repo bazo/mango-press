@@ -54,7 +54,7 @@ class PostsManager extends \BaseManager
 		$this->dm->persist($post);
 		$this->dm->flush();
 
-		$event = new \MangoPress\Events\PostEvents\PostEvent($post);
+		$event = new \MangoPress\Events\PostEvents\PostEvent($post, $tags);
 		$this->mediator->dispatch(\MangoPress\Events\PostEvents::POST_CREATED, $event);
 	}
 
@@ -78,7 +78,7 @@ class PostsManager extends \BaseManager
 		$this->dm->persist($post);
 		$this->dm->flush();
 
-		$event = new \MangoPress\Events\PostEvents\PostEvent($post);
+		$event = new \MangoPress\Events\PostEvents\PostEvent($post, $tags);
 		$this->mediator->dispatch(\MangoPress\Events\PostEvents::POST_UPDATED, $event);
 	}
 

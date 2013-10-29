@@ -29,7 +29,7 @@ class TagsManager extends \BaseManager implements EventSubscriberInterface
 	{
 		$post = $event->getPost();
 
-		$tags = $post->getTags();
+		$tags = $event->getTags();
 		$allTagsQuery = $this->dm->createQueryBuilder('Tag')
 				->select('tag')
 				->getQuery();

@@ -165,6 +165,14 @@ class PostHydrator implements HydratorInterface
             $this->class->reflFields['tags']->setValue($document, $return);
             $hydratedData['tags'] = $return;
         }
+
+        /** @Field(type="collection") */
+        if (isset($data['displayTags'])) {
+            $value = $data['displayTags'];
+            $return = $value;
+            $this->class->reflFields['displayTags']->setValue($document, $return);
+            $hydratedData['displayTags'] = $return;
+        }
         return $hydratedData;
     }
 }
