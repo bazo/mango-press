@@ -20,4 +20,6 @@ watchdog:
 	server: http://watchdog.bazo.sk
 
 monolog:
+	handlers:
+		stream: Monolog\Handler\StreamHandler(%appDir%/../log/log.txt)
 	useLogger: FALSE
