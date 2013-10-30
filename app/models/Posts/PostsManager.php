@@ -147,7 +147,7 @@ class PostsManager extends \BaseManager
 				return $this->searchPostsBySearchTerm($criteria->searchTerm);
 			} catch (\Elastica\Exception\Connection\HttpException $e) {
 				//elasticsearch down?
-				return $this->getPostsByCriteria($criteria)->getResults();
+				return $this->getPostsByCriteria($criteria);//->getResults();
 			}
 		}
 		

@@ -59,12 +59,12 @@
 
 							{#rssLink}<a n:href="homepage:feed" class="pull-right" id="rss-icon"><img src="{$basePath}/images/feed-icon-28x28.png"/></a>{/}
 
-							{form formSearch class => "form-search span4 pull-right"}
+							{*form formSearch class => "form-search span4 pull-right"}
 								<div class="input-append">
 									{input search class => "input-medium search-query span3"}
 									{input btnSubmit class => "btn"}
 								</div>
-							{/form}
+							{/form*}
 						
 							<div n:if="$user->isLoggedIn()" class="btn-group pull-right">
 								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -104,6 +104,17 @@
 						<li class="nav-header">Tags</li>
 						<li n:foreach="$tags as $tag => $webalizedTag" n:class="(isset($activeTag) and $activeTag === $webalizedTag) ? active"><a n:href="homepage:tag search => $webalizedTag">{$tag|lower}</a></li>
 					</ul>
+					
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- sidebar undertags -->
+					<ins class="adsbygoogle"
+						 style="display:inline-block;width:120px;height:240px"
+						 data-ad-client="ca-pub-4531787296781176"
+						 data-ad-slot="5480739246"></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+					
 				</aside>
 			</div>
 		</div>
