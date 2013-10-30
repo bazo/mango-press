@@ -1,10 +1,10 @@
 /* line 1, D:\www\mango-press\www\less\app.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\www\mango-press\www\less\app\.less}line{font-family:\000031}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/www\/mango-press\/www\/less\/app\.less}line{font-family:\000031}}
 body {
   padding-top: 90px;
 }
 /* line 5, D:\www\mango-press\www\less\app.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\www\mango-press\www\less\app\.less}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/www\/mango-press\/www\/less\/app\.less}line{font-family:\000035}}
 .form-search {
   display: inline-block;
   margin: 0;
@@ -12,22 +12,22 @@ body {
   padding-top: 15px;
 }
 /* line 10, D:\www\mango-press\www\less\app.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\www\mango-press\www\less\app\.less}line{font-family:\0000310}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/www\/mango-press\/www\/less\/app\.less}line{font-family:\0000310}}
 .form-search input[name="btnSubmit"] {
   height: 30px !important;
 }
 /* line 15, D:\www\mango-press\www\less\app.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\www\mango-press\www\less\app\.less}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/www\/mango-press\/www\/less\/app\.less}line{font-family:\0000315}}
 #rss-icon {
   padding-top: 15px;
 }
 /* line 19, D:\www\mango-press\www\less\app.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\www\mango-press\www\less\app\.less}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/www\/mango-press\/www\/less\/app\.less}line{font-family:\0000319}}
 .post {
   margin-top: 20px;
 }
 /* line 23, D:\www\mango-press\www\less\app.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\www\mango-press\www\less\app\.less}line{font-family:\0000323}}
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/www\/mango-press\/www\/less\/app\.less}line{font-family:\0000323}}
 .post .post-meta {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
@@ -35,4 +35,14 @@ body {
   padding-bottom: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+/* line 34, D:\www\mango-press\www\less\app.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/www\/mango-press\/www\/less\/app\.less}line{font-family:\0000334}}
+.md-editor textarea {
+  min-height: 400px;
+}
+/* line 38, D:\www\mango-press\www\less\app.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/www\/mango-press\/www\/less\/app\.less}line{font-family:\0000338}}
+#frm-formEditPost-title {
+  width: 98.5%;
 }
