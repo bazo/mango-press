@@ -20,14 +20,6 @@ nette:
 	session:
 		expiration: 14 days
 
-extensions:
-	database: Bazo\MongoDb\DI\DocumentManagerExtension
-	odmCommands: Bazo\MongoDb\DI\DoctrineODMCommandsExtension
-	console: Extensions\ConsoleExtension
-	mediator: Extensions\MediatorExtension
-	redis: Kdyby\Redis\DI\RedisExtension
-	elasticSearch: Bazo\ElasticSearch\DI\ElasticSearchExtension
-
 database:
 	dbname: %db.name%
 	uri: mongodb://localhost/%db.name%
@@ -46,58 +38,9 @@ redis:
 	journal: on
 	session: on
 
-services:
-
-	odmEventManager: 
-		class: Doctrine\Common\EventManager
-		setup:
-			- addEventSubscriber(@timestampableListener)
-			- addEventSubscriber(@blameableListener)
-
-	#odm listeners
-	timestampableListener: Gedmo\Timestampable\TimestampableListener
-	blameableListener: MangoPress\Listeners\BlameableListener(@container)
-	softDeleteableListener: Gedmo\SoftDeleteable\SoftDeleteableListener
-
-	ablameableListener: 
-		class: \Gedmo\Blameable\BlameableListener
-		setup:
-			- setUserValue('ds')
-			
-	tagsManager:
-		class: Posts\TagsManager
-		tags: [subscriber]
-
-	#cache
-	metaDataCache: Doctrine\Common\Cache\FilesystemCache(%tempDir%/cache/_Doctrine.Metadata)
-
-	#routing
-	- App\RouterFactory
-	router: @App\RouterFactory::createRouter
-
-	#security
-	- Security\UserManager
-
-	baseManager: BaseManager
-
-	#posts
-	- Posts\PostsManager
-	indexingListener:
-		class: Search\IndexingListener
-		tags: [subscriber]
-
-	- Settings\SettingsManager
-	postsIndexer: Posts\PostsIndexer
-		
-	#queue
-	- Queue\QueueManager
-	queueConsumer: 
-		class: Queue\Consumer
-		setup:
-			- setSleep(60)
-
-	- Symfony\Component\Console\Output\ConsoleOutput
 factories:
 
 includes:
 	- elasticsearch.neon
+	- extensions.neon
+	- services.neon

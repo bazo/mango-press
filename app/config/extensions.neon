@@ -1,0 +1,23 @@
+extensions:
+	console: Bazo\Console\DI\ConsoleExtension
+	mediator: Bazo\Mediator\DI\MediatorExtension
+	database: Bazo\MongoDb\DI\DocumentManagerExtension
+	odmCommands: Bazo\MongoDb\DI\DoctrineODMCommandsExtension
+	redis: Kdyby\Redis\DI\RedisExtension
+	elasticSearch: Bazo\ElasticSearch\DI\ElasticSearchExtension
+	monolog: Bazo\Monolog\DI\MonologExtension
+	watchdog: Bazo\Watchdog\DI\WatchdogExtension
+	chainLogger: Bazo\ChainLogger\DI\ChainLoggerExtension
+
+console:
+	name: Mango Press CLI
+	version: 0.1.0
+
+watchdog:
+	useLogger: FALSE
+	appId: 52701472724e7cd727da7836
+	appKey: 58b23cabadd36e4e76192537a76031fac2dd13ff
+	server: http://watchdog.bazo.sk
+
+monolog:
+	useLogger: FALSE
